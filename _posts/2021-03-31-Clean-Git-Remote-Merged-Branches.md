@@ -1,7 +1,7 @@
 ---
 title: Periodically Clean Merged Git Branches
 date: 2021-03-31 17:00:00 +0100
-categories: [Continuous Integration, Version Control]
+categories: [continuous integration]
 tags: [git, automation, powershell]
 toc: false
 ---
