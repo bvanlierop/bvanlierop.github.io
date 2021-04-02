@@ -6,7 +6,7 @@ tags: [git, automation, powershell]
 toc: false
 ---
 
-![alt text](images/clean.jpg =200px)
+![Cleaning picture](../images/clean.jpg =200px)
 
 # Introduction
 
@@ -44,6 +44,7 @@ Preferrably every night it should cleanup old branches.
 To execute something periodically (every night at 11 PM in this example), the Task Scheduler in Windows is most suitable for this.
 Use the following script to add it as a new scheduled task:
 
+    {% highlight powershell %}
     # Create a new task action
     $taskAction = New-ScheduledTaskAction `
         -Execute 'powershell.exe' `
@@ -68,6 +69,7 @@ Use the following script to add it as a new scheduled task:
         -Action $taskAction `
         -Trigger $taskTrigger `
         -Description $description
+    {% endhighlight %}
 
 You can view the newly added task via the Windows key -> type in "Task Scheduler" -> Hit ENTER.
 This brings up the task scheduler user interface and there you should see the task `GitCleanergedRemoteBranches`.
