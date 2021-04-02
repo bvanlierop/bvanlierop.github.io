@@ -6,6 +6,8 @@ tags: [git, automation, powershell]
 toc: false
 ---
 
+![alt text](images/clean.jpg =200px)
+
 # Introduction
 
 In our team we had some trouble with old Git branches not being cleaned up although they were merged in the past.
@@ -19,7 +21,7 @@ We need something similar for our situation as well.
 Preferrably every night it should cleanup old branches.
 
 ## Step 1: The Cleaning Script
-
+    {% highlight powershell %}
     cd <path_to_my_repo>
 
     # Get newest branches
@@ -35,6 +37,7 @@ Preferrably every night it should cleanup old branches.
         } | Foreach-Object { `
                 git.exe push origin --delete $_ `
             }
+    {% endhighlight %}
 
 ## Step 2: Run Script Nightly
 
