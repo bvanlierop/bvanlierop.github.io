@@ -28,7 +28,7 @@ Preferrably every night it should cleanup old branches.
     git.exe fetch --all
 
     # Get all merged branches except main ones like master and HEAD, then delete them on the remote (origin)
-    git.exe branch --all --merged remotes/origin/master |`
+    git.exe branch --all --merged remotes/origin/master | `
         Select-String -NotMatch "master" | `
         Select-String -NotMatch "HEAD"   | `
         Select-String "remotes/origin/"  | `
