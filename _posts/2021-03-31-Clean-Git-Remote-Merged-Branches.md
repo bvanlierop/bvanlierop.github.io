@@ -6,6 +6,8 @@ tags: [git, automation, powershell]
 toc: false
 ---
 
+![alt text](images/clean.jpg =200px)
+
 # Introduction
 
 In our team we had some trouble with old Git branches not being cleaned up although they were merged in the past.
