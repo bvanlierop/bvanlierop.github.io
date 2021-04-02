@@ -6,7 +6,7 @@ tags: [git, automation, powershell]
 toc: false
 ---
 
-![Cleaning picture](./assets/clean.jpg =200px)
+![Cleaning picture]({{site.url}}/assets/clean.jpg)
 
 # Introduction
 
@@ -38,6 +38,8 @@ Preferrably every night it should cleanup old branches.
                 git.exe push origin --delete $_ `
             }
     {% endhighlight %}
+
+Save this script to a path somewhere. In my situation this is `C:\scripts\Git-CleanMergedRemoteBranches.ps1`.
 
 ## Step 2: Run Script Nightly
 
