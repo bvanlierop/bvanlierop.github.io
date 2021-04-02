@@ -6,7 +6,7 @@ tags: [git, automation, powershell]
 toc: false
 ---
 
-![Cleaning picture]({{site.url}}assets/clean.jpg =100px)
+![Cleaning picture]({{site.url}}assets/clean.jpg =100x)
 
 # Introduction
 
