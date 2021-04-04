@@ -1,5 +1,6 @@
 source "https://rubygems.org"
 
+gem "jekyll-watch"
 gem "jekyll-theme-chirpy", "~> 3.2"
 
 group :jekyll_plugins do

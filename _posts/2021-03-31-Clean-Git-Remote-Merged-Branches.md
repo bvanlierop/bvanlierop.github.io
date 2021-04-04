@@ -6,7 +6,7 @@ tags: [git, automation, powershell]
 toc: false
 ---
 
-![Cleaning picture]({{site.url}}assets/clean.jpg)
+<img src="{{site.url}}assets/clean.jpg" alt="Cleaning Picture" width="400"/>
 
 # Introduction
 
@@ -23,22 +23,18 @@ Preferrably every night it should cleanup old branches.
 ## Step 1: The Cleaning Script
     {% highlight powershell %}
     cd <path_to_my_repo>
-
+    
     # Get newest branches
     git.exe fetch --all
-
+    
     # Get all merged branches except main ones like master and HEAD, then delete them on the remote (origin)
     git.exe branch --all --merged remotes/origin/master | `
         Select-String -NotMatch "master" | `
         Select-String -NotMatch "HEAD"   | `
         Select-String "remotes/origin/"  | `
-        Foreach-Object { `
-            $_.ToString().Replace("remotes/origin/", "").Trim() `
-        } | Foreach-Object { `
-                git.exe push origin --delete $_ `
-            }
+        Foreach-Object { $_.ToString().Replace("remotes/origin/", "").Trim() } | `
+        Foreach-Object { git.exe push origin --delete $_ }
     {% endhighlight %}
-
 Save this script to a path somewhere. In my situation this is `C:\scripts\Git-CleanMergedRemoteBranches.ps1`.
 
 ## Step 2: Run Script Nightly
