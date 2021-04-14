@@ -34,10 +34,10 @@ Preferrably every night it should cleanup old branches.
         Select-String "remotes/origin/"  | `
         Foreach-Object { $_.ToString().Replace("remotes/origin/", "").Trim() } | `
         Foreach-Object { git.exe push origin --delete $_ }
-    {% endhighlight %}
 
     # Prune all obsolete branches locally
     git.exe remote prune origin
+    {% endhighlight %}
 
 Save this script to a path somewhere. In my situation this is `C:\scripts\Git-CleanMergedRemoteBranches.ps1`.
 
