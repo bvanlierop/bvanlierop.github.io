@@ -38,6 +38,7 @@ Preferrably every night it should cleanup old branches.
 
     # Prune all obsolete branches locally
     git.exe remote prune origin
+
 Save this script to a path somewhere. In my situation this is `C:\scripts\Git-CleanMergedRemoteBranches.ps1`.
 
 ## Step 2: Run Script Nightly
