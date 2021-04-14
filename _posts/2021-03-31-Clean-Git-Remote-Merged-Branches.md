@@ -23,10 +23,10 @@ Preferrably every night it should cleanup old branches.
 ## Step 1: The Cleaning Script
     {% highlight powershell %}
     cd <path_to_my_repo>
-    
+
     # Get newest branches
     git.exe fetch --all
-    
+
     # Get all merged branches except main ones like master and HEAD, then delete them on the remote (origin)
     git.exe branch --all --merged remotes/origin/master | `
         Select-String -NotMatch "master" | `
@@ -35,6 +35,9 @@ Preferrably every night it should cleanup old branches.
         Foreach-Object { $_.ToString().Replace("remotes/origin/", "").Trim() } | `
         Foreach-Object { git.exe push origin --delete $_ }
     {% endhighlight %}
+
+    # Prune all obsolete branches locally
+    git.exe remote prune origin
 Save this script to a path somewhere. In my situation this is `C:\scripts\Git-CleanMergedRemoteBranches.ps1`.
 
 ## Step 2: Run Script Nightly
