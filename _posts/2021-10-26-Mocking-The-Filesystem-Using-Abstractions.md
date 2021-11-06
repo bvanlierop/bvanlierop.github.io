@@ -1,4 +1,3 @@
-
 ---
 title: Mocking The Filesystem Using Abstractions 
 date: 2021-03-31 17:00:00 +0100
@@ -6,8 +5,6 @@ categories: [testing, design]
 tags: [C#, mocks, unit tests, SOLID, dependency injection]
 toc: false
 ---
-
-<img src="{{site.url}}assets/clean.jpg" alt="Cleaning Picture" width="400"/>
 
 # Introduction
 
@@ -56,11 +53,12 @@ Class diagram:
 <insert here>
 
 On first glance the code looks okay but if you look closer it has some problems:
-1. The Importer test is hard to maintain because we have to create and maintain a separate test file
-2. The test takes longer because we need to access the disk which takes I/O resources. This adds up if you have thousands of unit tests.
-3. The Importer violates the 'D' of the SOLID principle (Dependency Inversion Principle) because we are tightly coupled to System.IO.File class. 
+* The Importer test is hard to maintain because we have to create and maintain a separate test file
+* The test takes longer because we need to access the disk which takes I/O resources. This adds up if you have thousands of unit tests.
+* The Importer violates the 'D' of the SOLID principle (Dependency Inversion Principle) because we are tightly coupled to System.IO.File class. 
 
 # Improving the testability and design
+    
 We can decouple the System.IO dependency by abstracting it away by leveraging a NuGet package called "System.IO.Abstractions". 
 It's really useful for these use cases where you want to mock the file system:
 
