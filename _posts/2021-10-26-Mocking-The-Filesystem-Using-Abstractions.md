@@ -50,6 +50,7 @@ On many occasions I come accross code that is tightly coupled to the file system
             Assert.AreEqual(ExpectedNumberOfDealerships, dealerships.Count);           
          }
     }
+    {% endhighlight %}
 
 Class diagram:
 <insert here>
@@ -94,7 +95,8 @@ It's really useful for these use cases where you want to mock the file system:
             return dealerships;
         }
     }
-
+    {% endhighlight %}
+    
 In our test we can then mock out the file system by specifying a test input file up front:
 
     {% highlight csharp %}
@@ -120,7 +122,8 @@ In our test we can then mock out the file system by specifying a test input file
         // Assert
         Assert.AreEqual(ExpectedNumberOfDealerships, dealerships.Count);
     }
-
+    {% endhighlight %}
+    
 This approach also works great for dealing with System.IO.Directory.Exists(), Create(), Delete() calls and many others.
 
 # Conclusion
